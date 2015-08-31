@@ -78,7 +78,7 @@ A word is compound-word if:
 - There is another word that is a _prefix_ of it
 - And the rest after the prefix is also a _word_ or a _compound word_.
 
-The **Parallel solution** is implemented in `findLongest()` function.
+The **Parallel solution** is implemented in `findLongestParal()` function.
 The most obvious parallel solution would simply cut the word list to multiple segments, and run the simple solution
 on all segments, then "merge" the results.
 
