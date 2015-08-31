@@ -9,16 +9,18 @@
 // An optional -parallel flag may be provided in which case the program will perform a parallel search
 // utilizing all CPU cores available on the machine.
 // 
-// Note #1: The task doesn't mention anything about how many words may combine the compound-word,
+// Notes
+//
+// 1. The task doesn't mention anything about how many words may combine the compound-word,
 // so this solution finds the longest word that may be assembled from any number of sub-words (>= 2).
 //
-// Note #2: The task also doesn't mention if words contain only the letters of the English alphabet,
+// 2. The task also doesn't mention if words contain only the letters of the English alphabet,
 // so this solution properly handles unicode characters (does not assume English alphabet letters only).
 //
-// Note #3: In case there are multiple equally longest compound-words, the result may be any of these.
+// 3. In case there are multiple equally longest compound-words, the result may be any of these.
 // If -parallel flag is not provided, the first in alphabetical order is returned.
 //
-// Note #4: This solution reads all words into memory and stores them in a slice.
+// 4. This solution reads all words into memory and stores them in a slice.
 // This is the only memory requirement.
 //
 // Speed Analyis

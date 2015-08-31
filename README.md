@@ -61,7 +61,7 @@ which contains 263533 words, the result (`"antidisestablishmentarianisms"`)
 is found in **~0.7 ms**! Less than a 1 ms out of ~263k words, that is wicked fast!
 Using the `-parallel` flag, it is slower (~5ms). This is partly due to the fact that the above list
 contains the longest compound-word in the first 3% of the list.
-When using a randomly generated list (10 million words, with length 5..44, having exactly one compound-word
+When using a randomly generated list (10 million words, with length `5..44`, having exactly one compound-word
 relatively at the end of the list), result is found in ~47 sec; when using `-parallel` it is found in ~15 sec (with 4 CPU cores).
 
 ## Implementation details
@@ -77,6 +77,13 @@ The "is-compound" test is implemented in the `compound()` function, and it uses 
 A word is compound-word if:
 - There is another word that is a _prefix_ of it
 - And the rest after the prefix is also a _word_ or a _compound word_.
+
+The "is-word-in-list" test is implemented in the `contains()` function, and it is simply a logarithmic search
+as the words are sorted (if not, the `-unsorted` flag must be provided in which case first a sorting is performed).
+
+The possible prefixes of a tested word are simply generated increasingly started from the first character,
+then the first 2 characters up to the word minus 1 character. The tested word is simply resliced (which is efficient),
+so no new strings are built/generated.
 
 The **Parallel solution** is implemented in `findLongestParal()` function.
 The most obvious parallel solution would simply cut the word list to multiple segments, and run the simple solution
