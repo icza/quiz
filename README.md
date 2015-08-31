@@ -84,6 +84,6 @@ on all segments, then "merge" the results.
 
 But I chose a different approach:
 I start multiple worker goroutines, and distribute the most expensive "is-compound" jobs to the workers.
-Reasoning is that whenever a compound-word is found, ongoing words only needs to be tested if they are longer than this.
+Reasoning is that whenever a compound-word is found, ongoing words only need to be tested if they are longer than this.
 Separating the search would not take advantage of this optimization without distributing compound findings.
-But then it is just easier to do distribute the compound checks.
+But then it is just easier to distribute the compound checks.
